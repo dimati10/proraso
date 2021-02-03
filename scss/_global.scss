@@ -1,0 +1,135 @@
+html {
+	box-sizing: border-box;
+}
+*, *::before, *::after {
+	box-sizing: inherit;
+}
+a {
+	color: #303030;
+	display: inline-block;
+	text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6, p, ul, li {
+	margin: 0;
+	padding: 0;
+}
+ul {
+	list-style: none;
+}
+img {
+	display: block;
+}
+body {
+	color: #303030;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+}
+.wrapper {
+	max-width: 1720px;
+	margin: 0 auto;
+}
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+.title {
+	font-size: 40px;
+	font-weight: 700;
+	line-height: 50px;
+}
+.btn {
+	position: relative;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 700;
+	background-color: $main;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	text-align: center;
+	border: none;
+	outline: transparent;
+	overflow: hidden;
+	transition: filter .5s;
+	cursor: pointer;
+	span {
+		padding-right: 50px;
+		position: relative;
+		&::after {
+			content: '';
+			position: absolute;
+			width: 31px;
+			height: 9px;
+			background-image: url('../images/arrow-right.png');
+			right: 0;
+			top: 5px;
+		}
+	}
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 60px;
+		height: 100%;
+		background-color: #fff;
+		filter: blur(40px);
+		transform: translateX(-200px) skewX(-45deg);
+		animation: move-light 3s infinite linear;
+	}
+	&:hover {
+		filter: brightness(1.1);
+	}
+}
+@keyframes move-light {
+	85% {
+		transform: translateX(-200px) skewX(-45deg);
+	}
+	100% {
+		transform: translateX(700px) skewX(-45deg);
+	}
+}
+.btn-position {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+#topBtn {
+	position: fixed;
+	z-index: 10;
+    right: 41px;
+    bottom: 25px;
+    width: 50px;
+    height: 50px;
+    background-color: $yellow;
+    border: none;
+    cursor: pointer;
+    display: none;
+    outline: none;
+    &:hover {
+        background-color: $main;
+    }
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    &::before {
+        width: 5px;
+        height: 25px;
+        border-radius: 3px 3px 0 0;
+        background-color: #fff;
+    }
+    &::after {
+        box-sizing: content-box;
+        width: 15px;
+        height: 15px; 
+        transform: translate(-50%, -50%) rotate(45deg);
+        border-top: 5px solid #fff;
+        border-left: 5px solid #fff;
+    }
+}
